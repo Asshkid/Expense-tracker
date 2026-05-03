@@ -15,7 +15,7 @@ class ExpenseProvider extends ChangeNotifier {
   FilterType _filter = FilterType.day;
   FilterType get filter => _filter;
 
-  // 💱 CURRENCY
+  //  CURRENCY
   bool isUzs = false;
   double _rate = 12500;
 
@@ -25,13 +25,13 @@ class ExpenseProvider extends ChangeNotifier {
     fetchRate();
   }
 
-  // 📥 LOAD
+  //  LOAD
   void loadExpenses() {
     _expenses = box.values.toList();
     notifyListeners();
   }
 
-  // 🌐 API RATE
+  //  API RATE
   Future<void> fetchRate() async {
     try {
       final res = await http.get(
@@ -48,18 +48,18 @@ class ExpenseProvider extends ChangeNotifier {
     }
   }
 
-  // 🔁 SWITCH CURRENCY
+  // SWITCH CURRENCY
   void toggleCurrency() {
     isUzs = !isUzs;
     notifyListeners();
   }
 
-  // 💱 CONVERT
+  // CONVERT
   double convert(double amount) {
     return isUzs ? amount * _rate : amount;
   }
 
-  // 💰 FORMAT STRING
+  // FORMAT STRING
   String format(double amount) {
     final value = convert(amount);
 
@@ -68,13 +68,13 @@ class ExpenseProvider extends ChangeNotifier {
         : "\$${value.toStringAsFixed(2)}";
   }
 
-  // ➕ ADD
+  //  ADD
   void addExpense(Expense expense) {
     box.add(expense);
     loadExpenses();
   }
 
-  // 🗑 DELETE
+  // DELETE
   Expense deleteExpense(int index) {
     final deleted = _expenses[index];
     final key = box.keyAt(index);
@@ -83,20 +83,20 @@ class ExpenseProvider extends ChangeNotifier {
     return deleted;
   }
 
-  // 🔁 RESTORE
+  //  RESTORE
   void restoreExpense(Expense expense) {
     box.add(expense);
     loadExpenses();
   }
 
-  // ✏ UPDATE
+  // UPDATE
   void updateExpense(int index, Expense updated) {
     final key = box.keyAt(index);
     box.put(key, updated);
     loadExpenses();
   }
 
-  // 🎯 FILTERED LIST
+  //  FILTERED LIST
   List<Expense> get filteredExpenses {
     final now = DateTime.now();
 
@@ -120,15 +120,15 @@ class ExpenseProvider extends ChangeNotifier {
     }).toList();
   }
 
-  // 💰 TOTAL
+  // TOTAL
   double get total =>
       _expenses.fold(0, (sum, item) => sum + item.amount);
 
-  // 📊 AVERAGE PER TRANSACTION
+  //  AVERAGE PER TRANSACTION
   double get averagePerTransaction =>
       _expenses.isEmpty ? 0 : total / _expenses.length;
 
-  // 📅 AVERAGE PER DAY (NEW)
+  //  AVERAGE PER DAY (NEW)
   double get averagePerDay {
     if (_expenses.isEmpty) return 0;
 
