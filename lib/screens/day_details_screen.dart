@@ -29,7 +29,7 @@ class DayDetailsScreen extends StatelessWidget {
             MaterialPageRoute(
               builder: (_) => AddExpenseScreen(),
               settings: RouteSettings(arguments: {
-                'date': date, // 👈 добавляем дату в новый расход
+                'date': date, 
               }),
             ),
           );
