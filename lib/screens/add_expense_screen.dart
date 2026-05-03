@@ -30,7 +30,7 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
 
     if (args != null && args is Map && !isEdit) {
 
-      // ✏ EDIT MODE
+      // EDIT MODE
       if (args['expense'] != null) {
         final expense = args['expense'] as Expense;
         editIndex = args['index'];
@@ -43,7 +43,7 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
         isEdit = true;
       }
 
-      // 📅 CREATE FROM CALENDAR
+      //  CREATE FROM CALENDAR
       if (args['date'] != null) {
         selectedDate = args['date'];
       }
