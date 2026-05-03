@@ -56,7 +56,7 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           children: [
 
-            // 💰 TOTAL CARD (ONLY TOTAL)
+            // TOTAL CARD (ONLY TOTAL)
             Container(
               width: double.infinity,
               padding: const EdgeInsets.all(20),
@@ -201,7 +201,7 @@ class HomeScreen extends StatelessWidget {
 
                             const SizedBox(height: 6),
 
-                            // 📅 DATE UNDER EACH ITEM
+                            // DATE UNDER EACH ITEM
                             Text(
                               _formatDate(e.date),
                               style: const TextStyle(
