@@ -21,7 +21,7 @@ class StatsScreen extends StatelessWidget {
         backgroundColor: Colors.transparent,
         elevation: 0,
 
-        // 💱 CURRENCY TOGGLE BUTTON (ADDED)
+        // CURRENCY TOGGLE BUTTON (ADDED)
         actions: [
           IconButton(
             icon: Icon(
@@ -40,7 +40,7 @@ class StatsScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
 
-            // 💰 TOTAL CARD
+            // TOTAL CARD
             Container(
               width: double.infinity,
               padding: const EdgeInsets.all(20),
@@ -59,7 +59,7 @@ class StatsScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 8),
 
-                  // 💱 CURRENCY FIXED
+                  // CURRENCY FIXED
                   Text(
                     provider.isUzs
                         ? "${provider.convert(provider.total).toStringAsFixed(0)} so'm"
@@ -86,7 +86,7 @@ class StatsScreen extends StatelessWidget {
 
             const SizedBox(height: 12),
 
-            // 📊 STATS ROW
+            // STATS ROW
             Row(
               children: [
 
@@ -146,7 +146,7 @@ class StatsScreen extends StatelessWidget {
     );
   }
 
-  // 📊 STAT CARD
+  // STAT CARD
   Widget _buildStatCard(
       String title,
       String value,
@@ -185,7 +185,7 @@ class StatsScreen extends StatelessWidget {
     );
   }
 
-  // 📦 CATEGORY SUMMARY
+  // CATEGORY SUMMARY
   List<Widget> _buildCategorySummary(provider) {
     Map<String, double> data = {};
 
